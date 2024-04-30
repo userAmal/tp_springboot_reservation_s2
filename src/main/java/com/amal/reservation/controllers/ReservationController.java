@@ -24,7 +24,7 @@ public class ReservationController {
 		 {
 			 Page<Reservation> res = reservationService.getAllReservationsParPage(page, size);
 			 modelMap.addAttribute("reservations", res);
-			  modelMap.addAttribute("pages", new int[res.getTotalPages()]);
+			 modelMap.addAttribute("pages", new int[res.getTotalPages()]);
 			 modelMap.addAttribute("currentPage", page);
 			 modelMap.addAttribute("size", size);
 			 return "listeReservations.html";
@@ -48,7 +48,7 @@ public class ReservationController {
 	 Reservation saveReservation = reservationService.saveReservation(reservation);
 	String msg ="produit enregistré avec Id "+saveReservation.getIdReservation();
 	modelMap.addAttribute("msg", msg);
-	return "createProduit";
+	return "createreservation";
 	}
 	@RequestMapping("/supprimerReservation")
 	public String supprimerReservation(@RequestParam("id") Long id,

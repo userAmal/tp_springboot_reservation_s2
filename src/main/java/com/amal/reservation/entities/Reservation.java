@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Reservation {
@@ -15,6 +16,16 @@ public class Reservation {
 	private Double prixSejour;
 	private Date dateReservation;
 	
+	@ManyToOne
+	private Type type;
+
+	
+	public Type getType() {
+		return type;
+	}
+	public void setType(Type type) {
+		this.type = type;
+	}
 	public Reservation(String nomClient, Double prixSejour, Date dateReservation) {
 		super();
 		this.nomClient = nomClient;

@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.amal.reservation.entities.Reservation;
+import com.amal.reservation.entities.Type;
 import com.amal.reservation.repos.ReservationRepository;
 @Service
 
@@ -51,6 +52,52 @@ public class ReservationServiceImpl  implements ReservationService{
 	@Override
 	public Page<Reservation> getAllReservationsParPage(int page, int size) {
 	return reservationRepository.findAll(PageRequest.of(page, size));
+	}
+
+	@Override
+	public List<Reservation> findByNomClient(String nom) {
+		// TODO Auto-generated method stub
+		return reservationRepository.findByNomClient(nom);
+	}
+
+	@Override
+	public List<Reservation> findByNomClientContains(String nom) {
+		// TODO Auto-generated method stub
+		return  reservationRepository.findByNomClientContains(nom);
+	}
+
+	@Override
+	public List<Reservation> findByNomPrix(String nom, Double prix) {
+		// TODO Auto-generated method stub
+		return reservationRepository.findByNomPrix(nom, prix);
+
+	}
+
+	@Override
+	public List<Reservation> findByType(Type type) {
+		// TODO Auto-generated method stub
+		return  reservationRepository.findByType(type);
+
+	}
+
+	@Override
+	public List<Reservation> findByTypeIdTy(Long id) {
+		// TODO Auto-generated method stub
+		return  reservationRepository.findByTypeIdTy(id);
+
+	}
+
+	@Override
+	public List<Reservation> findByOrderByNomTypeAsc() {
+		// TODO Auto-generated method stub
+		return reservationRepository.findByOrderByNomClientAsc();
+
+	}
+
+	@Override
+	public List<Reservation> trierReservationsNomsPrix() {
+		// TODO Auto-generated method stub
+		return  reservationRepository.trierReservationsNomsPrix();
 	}
 
 }
